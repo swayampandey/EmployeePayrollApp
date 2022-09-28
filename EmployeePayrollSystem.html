@@ -15,7 +15,7 @@
 
 <body>
 
-    <header class="header-content header">
+    <header class="header-content header" id="headerID">
         <div class="logo-content">
             <img src="./assets/images/logo.png" alt="">
             <div>
@@ -97,7 +97,7 @@
             <div class="row-content">
                 <label for="salary" class="label text">Choose your salary: </label>
                 <input type="range" name="salary" id="salary" class="input" min="300000" max="5000000" value="400000">
-                <output class="salary-output text" for="salary">400000</output>
+                <output class="salary-output text" for="salary" id="salaryOutput">400000</output>
             </div>
 
             <div class="row-content">
@@ -177,7 +177,16 @@
 
     </div>
 
+    <script>
+        //change the range slider value
+        const rangeVar = document.querySelector("#salary");
+        rangeVar.addEventListener("click", function () {
+            let rangeValue = document.getElementById("salary");
+            document.getElementById("salaryOutput").value = rangeValue.value;
+        });
 
+
+    </script>
 
 </body>
 
