@@ -56,24 +56,18 @@ class EmployeePayrollData {
         return this._startDate;
     }
     set startDate(startDate) {
-        const future = new Date();
-        future.setDate(future.getDate() + 30);
-        if (startDate < new Date() || startDate < future) {
+        const currentDate = new Date();
+        let timeDifference = currentDate.getTime() - startDate.getTime();
+        let daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+        console.log("Days difference : " + daysDifference);
+        if (startDate <= currentDate && daysDifference <= 30) {
             this._startDate = startDate;
         } else {
-            throw "Start date is invalid";
+            throw "Invalid start date";
         }
 
     }
-    // set startDate(startDate) {
-    //     if (startDate <= new Date())
-    //         this._startDate = startDate.toLocaleString(undefined, {
-    //             timeZone: 'Asia/Kolkata'
-    //         });
-    //     else {
-    //         throw "Invalid Start Date";
-    //     }
-    // }
+
     get note() {
         return this._notes;
     }
