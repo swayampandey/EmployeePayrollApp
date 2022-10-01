@@ -15,7 +15,7 @@ class EmployeePayrollData {
         this._startDate = params[5];
         this._notes = params[6];
     }
-
+    // getter and setter for employee payroll
     get name() {
         return this._name;
     }
@@ -113,6 +113,7 @@ function save() {
         console.log(employeePayroll.toString());
     } catch (e) {
         console.error(e);
+
     }
 
 
